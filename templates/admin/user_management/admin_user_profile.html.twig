@@ -1,0 +1,169 @@
+{%  extends '/admin/base_admin.html.twig' %}
+
+{% set getrole =  user.roles.0 %}
+
+{% if user.roles.0 == 'ROLE_ADMIN' %}
+    {% set role = 'Administrateur' %}
+{% elseif user.roles.0 == 'ROLE_PARTNER' %}
+    {% set role = 'Colaborateur' %}
+{% elseif user.roles.0 == 'ROLE_EDITOR' %}
+    {% set role = 'Secretaire' %}
+{% elseif user.roles.0 == 'ROLE_USER' %}
+    {% set role = 'Sous-traitant' %}
+{% else %}
+{% endif %}
+
+{% block title %}Profil de {{ user.firstname }}&nbsp;{{ user.lastname }}{% endblock %}
+
+{% block body %}
+    <header>
+        <h1> Profil de {{ user.firstname }}&nbsp;{{ user.lastname }}</h1>
+    </header>
+
+    <main>
+        <div class="container-xl px-4 mt-4">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profil</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">Onglet 2</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">onglet 3</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row">
+                        <div class="profile-nav col-md-3">
+                            <div class="card">
+                                <img class="card-img-top" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                                <div class="card-body">
+
+                                    <h1 class="card-title">{{ user.firstname }} {{ user.lastname }}</h1>
+                                    <h6 class="card-subtitle">{{ user.email }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-info col-md-9">
+
+                            <div class="card">
+                                {#                                <div class="bio-graph-heading">#}
+                                {#                                    Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.#}
+                                {#                                </div>#}
+                                <div class="card bio-graph-info">
+                                    <div class="card-header">
+                                        <h1>Infos Utilisateur</h1>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 bio-row">
+                                            <p><span>Prénom</span>: {{ user.firstname }}</p>
+                                        </div>
+                                        <div class="col-6 bio-row">
+                                            <p><span>Nom</span>: {{ user.lastname }}</p>
+                                        </div>
+                                        <div class="col-6 bio-row">
+                                            <p><span>Country </span>: Ville entreprise</p>
+                                        </div>
+                                        <div class="col-6 bio-row">
+                                            <p><span>Entreprise </span>: Nom entreprise</p>
+                                        </div>
+                                        <div class="col-6 bio-row">
+                                            <p><span>Téléphone </span>: {{ user.phone }}</p>
+                                        </div>
+                                        <div class="col-6 bio-row">
+
+                                            <p><span>Statut </span>: {{ role }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                {#                        <div class="row">#}
+                                {#                            <div class="col-md-6">#}
+                                {#                                <div class="panel">#}
+                                {#                                    <div class="panel-body">#}
+                                {#                                        <div class="bio-chart">#}
+                                {#                                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="35" data-fgcolor="#e06b7d" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background: none;"></div>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="bio-desk">#}
+                                {#                                            <h4 class="red">Envato Website</h4>#}
+                                {#                                            <p>Started : 15 July</p>#}
+                                {#                                            <p>Deadline : 15 August</p>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                            </div>#}
+                                {#                            <div class="col-md-6">#}
+                                {#                                <div class="panel">#}
+                                {#                                    <div class="panel-body">#}
+                                {#                                        <div class="bio-chart">#}
+                                {#                                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="63" data-fgcolor="#4CC5CD" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background: none;"></div>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="bio-desk">#}
+                                {#                                            <h4 class="terques">ThemeForest CMS </h4>#}
+                                {#                                            <p>Started : 15 July</p>#}
+                                {#                                            <p>Deadline : 15 August</p>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                            </div>#}
+                                {#                            <div class="col-md-6">#}
+                                {#                                <div class="panel">#}
+                                {#                                    <div class="panel-body">#}
+                                {#                                        <div class="bio-chart">#}
+                                {#                                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="75" data-fgcolor="#96be4b" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(150, 190, 75); padding: 0px; -webkit-appearance: none; background: none;"></div>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="bio-desk">#}
+                                {#                                            <h4 class="green">VectorLab Portfolio</h4>#}
+                                {#                                            <p>Started : 15 July</p>#}
+                                {#                                            <p>Deadline : 15 August</p>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                            </div>#}
+                                {#                            <div class="col-md-6">#}
+                                {#                                <div class="panel">#}
+                                {#                                    <div class="panel-body">#}
+                                {#                                        <div class="bio-chart">#}
+                                {#                                            <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="50" data-fgcolor="#cba4db" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(203, 164, 219); padding: 0px; -webkit-appearance: none; background: none;"></div>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="bio-desk">#}
+                                {#                                            <h4 class="purple">Adobe Muse Template</h4>#}
+                                {#                                            <p>Started : 15 July</p>#}
+                                {#                                            <p>Deadline : 15 August</p>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                            </div>#}
+                                {#                        </div>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                    <div class="row">
+                        <div class="col">
+                            Placeholder
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="row">
+                        <div class="col">
+                            Placeholder
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </main>
+{% endblock %}
