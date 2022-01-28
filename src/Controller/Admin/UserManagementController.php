@@ -66,9 +66,11 @@ class UserManagementController extends AbstractController
     public function adminShowUser($id): Response
     {
         $user = $this->getMyUser($id);
+        $user_company = $user->getUserCompany();
 
         return $this->render('admin/user_management/admin_user_profile.html.twig',[
             'user' => $user,
+            'user_company'=> $user_company,
         ]);
     }
 

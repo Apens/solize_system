@@ -64,10 +64,10 @@
                                             <p><span>Nom</span>: {{ user.lastname }}</p>
                                         </div>
                                         <div class="col-6 bio-row">
-                                            <p><span>Country </span>: Ville entreprise</p>
+                                            <p><span>ville</span>: {{ user_company.companyCity }}</p>
                                         </div>
                                         <div class="col-6 bio-row">
-                                            <p><span>Entreprise </span>: Nom entreprise</p>
+                                            <p><span>Entreprise </span>: {{ user_company.companyName }}</p>
                                         </div>
                                         <div class="col-6 bio-row">
                                             <p><span>Téléphone </span>: {{ user.phone }}</p>
@@ -158,12 +158,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
-
-
     </main>
 {% endblock %}
