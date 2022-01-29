@@ -1,0 +1,57 @@
+/**** css position order ****/
+/*
+
+    1. Positioning
+    2. Box model
+    3. Typographic
+    4 Visual
+    5. Misc
+
+*/
+
+.company {
+  &__header-container {
+    height: 150px;
+    display: flex;
+    align-items: center;
+
+    &__header {
+
+      &-title {
+
+      }
+    }
+  }
+
+  &__content {
+
+    .table {
+      text-align: center;
+      thead {
+        background-color: #5eb5e0;
+        .fit {
+          white-space: nowrap;
+          width: 1%;
+        }
+      }
+      tbody {
+        .fit {
+          white-space: nowrap;
+          width: 1%;
+        }
+        tr {
+          height: 80px ;
+
+          font-size: 1.1em;
+
+          td {
+            //padding: 3% 0;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}

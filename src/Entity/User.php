@@ -61,6 +61,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->booked_appointments = new ArrayCollection();
     }
 
+
+    public function getFullname(): ?string
+    {
+        return $this->getFirstname().' '.$this->getLastname();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -298,5 +305,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getLastname();
     }
 }

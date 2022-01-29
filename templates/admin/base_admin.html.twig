@@ -14,16 +14,16 @@
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
-<body>
+<body class="active">
 {# page wrapper #}
 <div class="page">
     {#    Sidebar#}
-    <div class="sidebar">
+    <div class="sidebar d-sm-none d-lg-block">
         <div class="sidebar-header">
             <div class="sidebar-logo-container">
                 <div class="logo-container">
                     <img src="" alt="logo" class="logo-sidebar">
-                    {#                    <img src="assets/img/logo.png" alt="logo" class="logo-sidebar">#}
+                                        <img src="assets/img/logo.png" alt="logo" class="logo-sidebar">
                 </div>
                 <div class="brand-name-container">
                     <p class="brand-name">
@@ -73,13 +73,25 @@
                 </li>
 
                 <li class="navigation-list-item">
-                    <a href="#" class="navigation-link">
+                    <a href="{{ path('admin_customer_index') }}" class="navigation-link">
                         <div class="row">
                             <div class="col-2">
                                 <i class="fas fa-tachometer"></i>
                             </div>
                             <div class="col-10">
                                 Customers
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="navigation-list-item">
+                    <a href="{{ path('appointment_index') }}" class="navigation-link">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="fas fa-tachometer"></i>
+                            </div>
+                            <div class="col-10">
+                                Rendez-vous
                             </div>
                         </div>
                     </a>
@@ -96,6 +108,7 @@
                         </div>
                     </a>
                 </li>
+
             </ul>
             <hr style="margin-top: 30px;color: white">
             <div class="teams-title-container">
