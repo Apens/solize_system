@@ -1,0 +1,138 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+<div class="card">
+    <div class="body">
+        {{ form_start(form) }}
+        <div class="form-group row">
+            <label class="customer__label col-md-2 col-sm-4 col-form-label">
+                Informations Basique
+            </label>
+            <div class="col-8 col-sm-8">
+                <div class="row clearfix">
+                    <div class="row clearfix">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                {{ form_row(form.start_time) }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                {{ form_row(form.expected_end) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix mt-3">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                {{ form_row(form.end_time) }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="row clearfix d-flex flex-column">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form_row(form.service_job) }}
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="form-group">
+                                        {{ form_row(form.approved_by_client) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row clearfix mt-3">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                {{ form_row(form.appointmentReason) }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="row clearfix d-flex flex-column">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form_row(form.appointmentAddress) }}
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-between">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            {{ form_row(form.appointmentZipcode) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-2">
+                                        <div class="form-group">
+                                            {{ form_row(form.appointmentCity) }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="from-group row mt-4">
+            <label class="customer__label col-md-2 col-sm-4 col-form-label">
+                Invités
+            </label>
+            <div class="col-8 col-sm-8">
+                <div class="row clearfix">
+                <div class="row clearfix">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            {{ form_row(form.customer) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            {{ form_row(form.booked_user) }}
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row mt-4">
+            <label class="customer__label col-md-2 col-sm-4 col-form-label">
+                Annulation
+            </label>
+            <div class="col-8 col-sm-8 mt-2">
+                <div class="row clearfix">
+                    <div class="row clearfix">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                {{ form_row(form.is_cancelled) }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="col">
+
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(form.cancellation_reason) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix  mt-4">
+                    <div class="col d-flex justify-content-center">
+                        <button class=" col-3 btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{ form_end(form) }}
+    </div>
+</div>

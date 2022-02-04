@@ -1,0 +1,26 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('company') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container company">
+        <div class="company__header mb-2">
+            <header class="company__header-container col-md-12">
+                <h1 class="company__header-title">
+                    {% block company_header_title %}
+                    {% endblock %}
+                </h1>
+            </header>
+        </div>
+
+        <main class="company__content col-md-12">
+            {% block company_content %}{% endblock %}
+        </main>
+    </div>
+{% endblock %}
+

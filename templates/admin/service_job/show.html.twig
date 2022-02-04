@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ServiceJob{% endblock %}
+
+{% block body %}
+    <h1>ServiceJob</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ service_job.id }}</td>
+            </tr>
+            <tr>
+                <th>Job_name</th>
+                <td>{{ service_job.jobName }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ service_job.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('service_job_index') }}">back to list</a>
+
+    <a href="{{ path('service_job_edit', {'id': service_job.id}) }}">edit</a>
+
+    {{ include('admin/service_job/_delete_form.html.twig') }}
+{% endblock %}

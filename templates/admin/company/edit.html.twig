@@ -1,0 +1,21 @@
+{% extends 'admin/company/company_base.html.twig' %}
+
+{% block title %}Modifier {{ company.companyName }}{% endblock %}
+
+{% block company_header_title %}
+    Modifier {{ company.companyName }}
+{% endblock %}
+
+{% block company_content %}
+    <div class="btn-nav d-flex mb-2">
+        <a class="btn btn-info" href="{{ path('admin_company_index') }}">back to list</a>
+
+        {{ include('admin/company/_delete_form.html.twig') }}
+    </div>
+    <div class="row d-flex justify-content-center">
+        {{ include('admin/company/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    </div>
+
+
+
+{% endblock %}

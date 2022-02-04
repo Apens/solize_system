@@ -1,0 +1,68 @@
+{% extends 'admin/admin_customer/customer_base_admin.html.twig' %}
+
+{% block title %}Liste Client{% endblock %}
+
+{% block customer_header %}
+    <h1>Portefeuille Client</h1>
+    <span>la où ton argent dort</span>
+{% endblock %}
+
+{% block customer_content %}
+    <main class="row clearfix">
+        <div class="col-sm-12">
+            <div class="card ">
+                <div class="body p-4">
+                    <form action="#">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Recherche Client">
+                            <div class="input-group-append">
+                                <span id="search-mail" class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Téléphone</th>
+                            <th>Adresse</th>
+                            <th>Code Postal</th>
+                            <th>E-mail</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for customer in customers %}
+                            <tr>
+                                <td>{{ customer.id }}</td>
+                                <td>{{ customer.firstname }}</td>
+                                <td>{{ customer.lastname }}</td>
+                                <td>{{ customer.phoneNumber }}</td>
+                                <td>{{ customer.customerAddress }}</td>
+                                <td>{{ customer.customerZipcode }}</td>
+                                <td>{{ customer.customerEmail }}</td>
+                                <td>
+                                    <a class="btn btn-dark" href="{{ path('admin_customer_show', {'id': customer.id}) }}"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-warning" href="{{ path('admin_customer_edit', {'id': customer.id}) }}"><i class="fas fa-pen"></i></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="9">Aucun résultat correspondant à votre demande</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary mt-2 mb-2" href="{{ path('admin_customer_new') }}">Nouveau Client</a>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

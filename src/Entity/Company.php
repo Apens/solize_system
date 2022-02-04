@@ -33,6 +33,9 @@ class Company
     #[ORM\OneToMany(mappedBy: 'user_company', targetEntity: User::class)]
     private $users;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $company_email;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -129,6 +132,18 @@ class Company
                 $user->setUserCompany(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCompanyEmail(): ?string
+    {
+        return $this->company_email;
+    }
+
+    public function setCompanyEmail(?string $company_email): self
+    {
+        $this->company_email = $company_email;
 
         return $this;
     }

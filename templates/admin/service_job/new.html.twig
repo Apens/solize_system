@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ServiceJob{% endblock %}
+
+{% block body %}
+    <h1>Create new ServiceJob</h1>
+
+    {{ include('admin/service_job/_form.html.twig') }}
+
+    <a href="{{ path('service_job_index') }}">back to list</a>
+{% endblock %}

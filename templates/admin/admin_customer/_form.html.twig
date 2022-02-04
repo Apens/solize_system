@@ -1,0 +1,95 @@
+<div class="card">
+    <div class="body">
+        {{ form_start(form) }}
+        <div class="form-group row">
+            <label class="customer__label col-md-2 col-sm-4 col-form-label">
+                Informations Basique
+            </label>
+            <div class="col-8 col-sm-8">
+                <div class="row clearfix">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group c_form_group form-floating">
+                            {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.firstname, null, {
+                                'label': 'Prénom',
+                            }) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group c_form_group form-floating">
+                            {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.lastname, null, {
+                                'label': 'Nom',
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group c_form_group form-floating">
+                            {{ form_widget(form.phone_number, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.phone_number, null, {
+                                'label': 'Numero de Téléphone',
+                            }) }}
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="form-group c_form_group form-floating">
+                            {{ form_widget(form.customer_email, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.customer_email, null, {
+                                'label': 'Courriel',
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="form-group c_form_group form-floating">
+                            {{ form_widget(form.customer_address, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.customer_address, null, {
+                                'label': 'Adresse',
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group c_form_group form-floating">
+                            {{ form_widget(form.customer_zipcode, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.customer_zipcode, null, {
+                                'label': 'Code Postal',
+                            }) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group c_form_group form-floating">
+                            {{ form_widget(form.customer_city, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.customer_city, null, {
+                                'label': 'Ville',
+                            }) }}
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group row mt-5">
+            <label class="customer__label col-md-2 col-sm-4 col-form-label">
+{#                Informations Complémentaires#}
+            </label>
+            <div class="col-md-8 col-sm-4">
+                <div class="row clearfix">
+                    {#            {{ form_widget(form) }}#}
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary">{{ button_label|default('Créer') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+.customer {
+
+  .card .body {
+    font-weight: 400;
+    padding: 22px;
+  }
+  &__label{
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+  .c_form_group label {
+    font-size: 20px;
+  }
+  .c_form_group input {
+    height: 80px;
+    padding-bottom: 0 !important;
+    margin-bottom: 1em;
+  }
+}

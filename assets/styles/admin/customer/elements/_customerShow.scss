@@ -1,0 +1,22 @@
+.customer {
+  .show_buttons {
+    margin-bottom: 5px;
+    div:first-of-type {
+      margin-right: 5px;
+    }
+  }
+  &__social {
+    color: white;
+    &_header {
+      padding: 20px;
+      background-color: darkseagreen;
+      img {
+        width: 70px !important;
+        vertical-align: middle;
+      }
+      .details {
+        margin-left: 10px;
+      }
+    }
+  }
+}

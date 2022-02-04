@@ -1,0 +1,55 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Appointment{% endblock %}
+
+{% block body %}
+    {{ dump(appointment, author) }}
+    <h1>Appointment</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appointment.id }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ appointment.createdAt ? appointment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Start_time</th>
+                <td>{{ appointment.startTime ? appointment.startTime|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Expected_end</th>
+                <td>{{ appointment.expectedEnd ? appointment.expectedEnd|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End_time</th>
+                <td>{{ appointment.endTime ? appointment.endTime|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Approved_by_client</th>
+                <td>{{ appointment.approvedByClient ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Is_cancelled</th>
+                <td>{{ appointment.isCancelled ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Cancellation_reason</th>
+                <td>{{ appointment.cancellationReason }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ appointment.updatedAt ? appointment.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('appointment_index') }}">back to list</a>
+
+    <a href="{{ path('appointment_edit', {'id': appointment.id}) }}">edit</a>
+
+    {{ include('admin/appointment/_delete_form.html.twig') }}
+{% endblock %}

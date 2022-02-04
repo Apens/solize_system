@@ -26,10 +26,12 @@ class AdminCustomerController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $customer = new Customer();
+        $current_date = new \DateTimeImmutable('now');
         $form = $this->createForm(CustomerType::class, $customer);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $customer->setCreatedAt($current_date);
             $entityManager->persist($customer);
             $entityManager->flush();
 

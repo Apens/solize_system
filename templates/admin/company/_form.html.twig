@@ -1,0 +1,56 @@
+<div class="card col-6">
+    <div class="col-12">
+        {{ form_start(form, {'attr': {'class': 'company__form-card'}}) }}
+        <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-12 flex-column d-flex">
+                {{ form_label(form.company_name, null, {
+                    'label' : 'Nom de l\'entreprise',
+                    'label_attr': {'class': 'form-control-label px-3'},
+                }) }}
+                {{ form_widget(form.company_name) }}
+            </div>
+        </div>
+        <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-12 flex-column d-flex">
+                {{ form_label(form.company_address, null, {
+                    'label' : 'Adresse',
+                    'label_attr': {'class': 'form-control-label px-3'},
+                }) }}
+                {{ form_widget(form.company_address) }}
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form_label(form.company_zipcode, null, {
+                    'label' : 'Code postal',
+                    'label_attr': {'class': 'form-control-label px-3'},
+                }) }}
+                {{ form_widget(form.company_zipcode) }}
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form_label(form.company_city, null, {
+                    'label' : 'Ville',
+                    'label_attr': {'class': 'form-control-label px-3'},
+                }) }}
+                {{ form_widget(form.company_city) }}
+            </div>
+        </div>
+        <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form_label(form.company_phone, null, {
+                    'label' : 'Numero de téléphone',
+                    'label_attr': {'class': 'form-control-label px-3'},
+                }) }}
+                {{ form_widget(form.company_phone) }}
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form_label(form.company_email, null, {
+                    'label' : 'E-mail',
+                    'label_attr': {'class': 'form-control-label px-3'},
+                }) }}
+                {{ form_widget(form.company_email) }}
+            </div>
+        </div>
+        <button class="btn btn-warning">{{ button_label|default('Enregistrer') }}</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+

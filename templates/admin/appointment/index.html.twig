@@ -1,0 +1,71 @@
+{% extends 'admin/appointment/appointment_base_admin.html.twig' %}
+
+{% block title %}Rendez-Vous{% endblock %}
+
+{% block customer_header %}
+    <h1>Rendez-vous</h1>
+{% endblock %}
+
+{% block customer_content %}
+    <main class="row clearfix">
+        <div class="col-sm-12">
+            <div class="card ">
+                <div class="body p-4">
+                    <form action="#">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Recherche Client">
+                            <div class="input-group-append">
+                                <span id="search-mail" class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table text-center table-hover mb-0">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ajouté le</th>
+                            <th>Date du RDV</th>
+                            <th>Heure</th>
+                            <th>Client</th>
+                            <th>Téléphone</th>
+                            <th>Confirmation Client</th>
+                            <th>Annulation</th>
+                            <th>Code Postal</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for appointment in appointments %}
+                            <tr>
+                                <td>{{ appointment.id }}</td>
+                                <td>{{ appointment.createdAt ? appointment.createdAt|date('d-m-Y') : '' }}</td>
+                                <td>{{ appointment.startTime ? appointment.startTime|date('Y-m-d') : '' }}</td>
+                                <td>{{ appointment.startTime ? appointment.startTime|date('H:i') : '' }} {{ appointment.expectedEnd ? appointment.expectedEnd|date('H:i') : '' }} </td>
+                                <td>{{ appointment.customer.firstname }} <b>{{ appointment.customer.lastname }}</b></td>
+                                <td>{{ appointment.customer.phoneNumber }}</td>
+                                <td>{{ appointment.approvedByClient ? 'Oui' : 'Non' }}</td>
+                                <td>{{ appointment.isCancelled ? 'Oui' : 'Non' }}</td>
+                                <td>{{ appointment.appointmentZipcode }}</td>
+                                <td>
+                                    <a class="btn btn-dark" href="{{ path('appointment_show', {'id': appointment.id}) }}"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-warning" href="{{ path('appointment_edit', {'id': appointment.id}) }}"><i class="fas fa-pen"></i></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="9">Aucun résultat correspondant à votre demande</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary mt-2 mb-2" href="{{ path('appointment_new') }}">Nouveau Rendez-vous</a>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

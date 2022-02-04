@@ -1,0 +1,118 @@
+{% extends '/admin/base_admin.html.twig' %}
+
+{% block title %}Liste d'utilisateurs{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <header class="PageList-header">
+            {% for message in app.flashes('deleteUser') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <p>Test</p>
+        </header>
+        <main>
+
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <a href="{{ path('app_register') }}" class="btn btn-primary col-2 offset-10"> Ajouter une entreprise</a>
+                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-uppercase mb-0">Liste entreprise</h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table no-wrap user-table mb-0">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Nom</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Entreprise</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Contact</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Added</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Activité</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Gerer</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="pl-4">6</td>
+                                    <td>
+                                        <h5 class="font-medium mb-0">Charlotte Brown</h5>
+                                        <span class="text-muted">Texas, Unitedd states</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">Visual Designer</span><br>
+                                        <span class="text-muted">Past : teacher</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">daniel@website.com</span><br>
+                                        <span class="text-muted">999 - 444 - 555</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">15 Mar 1988</span><br>
+                                        <span class="text-muted">10: 55 AM</span>
+                                    </td>
+                                    <td>
+                                        <select class="form-control category-select" id="exampleFormControlSelect1">
+                                            <option>Modulator</option>
+                                            <option>Admin</option>
+                                            <option>User</option>
+                                            <option>Subscriber</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-eye"></i> </button>
+                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                                        {#                                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>#}
+                                    </td>
+                                </tr>
+{#                                {% for user in users %}#}
+                                    <tr>
+                                        <td class="pl-4"></td>
+                                        <td>
+                                            <h5 class="font-medium mb-0"></h5>
+                                            <span class="text-muted">*ville entreprise*</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted">*Nom entreprise*</span><br>
+                                            <span class="text-muted">User.job?</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted"></span><br>
+                                            <span class="text-muted"></span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted">15 Mar 1988</span><br>
+                                            <span class="text-muted">10: 55 AM</span>
+                                        </td>
+                                        <td>
+
+                                            <div class="text-muted"></div>
+
+
+                                        </td>
+                                        <td>
+{#                                            <a href="{{ path('admin_show_user', {'id': user.id } ) }}" type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-eye"></i> </a>#}
+{#                                            <a href="{{ path('admin_edit_user', {'id': user.id} ) }}" type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </a>#}
+{#                                            <a href="{{ path('admin_delete_user', {'id': user.id}) }}" type="button" class="btn btn-outline-danger btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </a>#}
+                                            {#                                            <a href="#" type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </a>#}
+                                        </td>
+                                    </tr>
+{#                                {% endfor %}#}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}

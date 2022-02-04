@@ -39,6 +39,9 @@ class Customer
     #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Appointment::class)]
     private $appointments;
 
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $created_at;
+
     public function __construct()
     {
         $this->appointments = new ArrayCollection();
@@ -71,6 +74,11 @@ class Customer
         $this->lastname = $lastname;
 
         return $this;
+    }
+
+    public function getCustomerFullname(): string
+    {
+        return $this->getFirstname()." ".$this->getLastname();
     }
 
     public function getPhoneNumber(): ?string
@@ -166,5 +174,17 @@ class Customer
     public function __toString()
     {
         return $this->getLastname();
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
     }
 }

@@ -1,0 +1,16 @@
+.customer {
+  font-size: 15px;
+  &__header {
+    margin-bottom: 15px;
+    padding: 15px 0;
+    h1 {
+      line-height: 28px;
+      margin-top: 15px;
+    }
+  }
+  table tr {
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+}

@@ -1,0 +1,90 @@
+{% extends 'admin/company/company_base.html.twig' %}
+
+{#titre de la page (onglet)#}
+{% block title %}Company index{% endblock %}
+{#titre de la page (affichage in browser )#}
+{% block company_header_title %}Company index{% endblock %}
+
+
+{% block company_content %}
+    <div class="col mb-2">
+        <a class="btn btn-outline-primary" href="{{ path('company_new') }}">Ajouter une Entreprise</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover d-none d-md-block">
+            <thead class="bg-dark text-white">
+            <tr class="fit">
+                <th class="fit">#</th>
+                <th class="fit">Nom</th>
+                <th class="fit">Adresse</th>
+                <th class="fit">Code Postal</th>
+                {#                    <th>Company_city</th>#}
+                <th class="fit">Contact</th>
+                <th class="fit">actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for company in companies %}
+                <tr class="fit">
+                    <td class="fit">{{ company.id }}</td>
+                    <td class="fit">{{ company.companyName }}</td>
+                    <td>{{ company.companyAddress }}</td>
+                    <td class="fit">{{ company.companyZipcode }}</td>
+                    {#                        <td>{{ company.companyCity }}</td>#}
+                    <td class="fit"><a href="tel:{{ company.companyPhone }}">{{ company.companyPhone }}</a></td>
+                    <td class="fit">
+                        <a class="btn btn-dark" href="{{ path('company_show', {'id': company.id}) }}"><i class="fas fa-eye"></i></a>
+                        <a class="btn btn-warning" href="{{ path('company_edit', {'id': company.id}) }}"><i class="fas fa-pen"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <ul class="list-group d-block d-sm-block d-md-none">
+        {% for company in companies %}
+            <li class="list-group-item bg-primary">
+                <div class="col-12 bg-primary">
+                    <div class="row text-center">
+                        <div class="col-12 mb-2">
+                            <h5>{{ company.companyName }}</h5>
+                        </div>
+                        <div class="col-12 p-0 d-flex flex-row mb-3">
+                            <div class="col-6">
+                                {{ company.companyAddress }}<br>
+                                {{ company.companyZipcode }} {{ company.companyCity }}
+                            </div>
+
+                            <div class="col-6 p-0 d-flex flex-column">
+                                <div class="col-sm-12">
+                                    companyMail ( à rajouter )
+                                </div>
+                                <div class="col-sm-12">
+                                    {{ company.companyPhone }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex mb-2">
+                            <div class="col-6">
+                                <a class="btn btn-dark" href="{{ path('company_show', {'id': company.id}) }}"><i class="fas fa-eye"></i> Voir</a>
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-warning" href="{{ path('company_edit', {'id': company.id}) }}"><i class="fas fa-pen"></i> Modifier</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -49,6 +49,18 @@ class Appointment
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $updated_at;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $appointment_address;
+
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    private $appointment_zipcode;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $appointment_city;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $appointment_reason;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -194,6 +206,54 @@ class Appointment
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getAppointmentAddress(): ?string
+    {
+        return $this->appointment_address;
+    }
+
+    public function setAppointmentAddress(?string $appointment_address): self
+    {
+        $this->appointment_address = $appointment_address;
+
+        return $this;
+    }
+
+    public function getAppointmentZipcode(): ?string
+    {
+        return $this->appointment_zipcode;
+    }
+
+    public function setAppointmentZipcode(?string $appointment_zipcode): self
+    {
+        $this->appointment_zipcode = $appointment_zipcode;
+
+        return $this;
+    }
+
+    public function getAppointmentCity(): ?string
+    {
+        return $this->appointment_city;
+    }
+
+    public function setAppointmentCity(?string $appointment_city): self
+    {
+        $this->appointment_city = $appointment_city;
+
+        return $this;
+    }
+
+    public function getAppointmentReason(): ?string
+    {
+        return $this->appointment_reason;
+    }
+
+    public function setAppointmentReason(?string $appointment_reason): self
+    {
+        $this->appointment_reason = $appointment_reason;
 
         return $this;
     }

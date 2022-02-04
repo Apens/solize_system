@@ -1,0 +1,15 @@
+{% extends 'admin/admin_customer/customer_base_admin.html.twig' %}
+
+{% block title %}Nouveau Client{% endblock %}
+
+{% block customer_header %}
+    <h1>Create new Customer</h1>
+{% endblock %}
+
+{% block customer_content %}
+    <a class="btn btn-success mb-3" href="{{ path('admin_customer_index') }}">back to list</a>
+
+    {{ include('admin/admin_customer/_form.html.twig') }}
+
+
+{% endblock %}
